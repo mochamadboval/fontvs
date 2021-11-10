@@ -67,7 +67,7 @@ export function changeFilterType(ID) {
 
   setTimeout(() => {
     stopFilterLoader(ID);
-  }, 1);
+  }, 20);
 }
 
 function changeText(ID, value) {

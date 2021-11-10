@@ -23,7 +23,7 @@ global.startFilterLoader = (id) => {
 
   setTimeout(() => {
     changeFilterType(ID);
-  }, 1);
+  }, 20);
 };
 
 export function stopFilterLoader(ID) {

@@ -8,7 +8,9 @@ function loadEditor() {
   addEditor();
   count += 1;
   addEditor();
-  stopLoader();
+  setTimeout(() => {
+    stopLoader();
+  }, 20);
 }
 
 async function fetchAPI() {
@@ -31,6 +33,8 @@ newEditor.addEventListener('click', () => {
   count += 1;
   setTimeout(() => {
     addEditor();
-    stopLoader();
-  }, 1);
+    setTimeout(() => {
+      stopLoader();
+    }, 20);
+  }, 20);
 });
