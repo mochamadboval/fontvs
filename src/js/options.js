@@ -100,7 +100,7 @@ function changeText(ID, value) {
         value = 'Lexend Ori';
       }
 
-      const file = new FontFace(value, `url(${font.files[variant]}`);
+      const file = new FontFace(value, `url(${font.files[variant].replace('http://', 'https://')}`);
 
       file.load().then((data) => {
         document.fonts.add(data);
