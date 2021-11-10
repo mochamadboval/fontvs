@@ -33,8 +33,6 @@ newEditor.addEventListener('click', () => {
   count += 1;
   setTimeout(() => {
     addEditor();
-    setTimeout(() => {
-      stopLoader();
-    }, 20);
+    stopLoader();
   }, 20);
 });
