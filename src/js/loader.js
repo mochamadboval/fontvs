@@ -1,12 +1,14 @@
-import { loader } from './variable';
+import { loaders } from './variable';
 import { changeFilterType } from './options';
 
 export function startLoader() {
-  loader.classList.remove('hidden');
+  loaders[0].classList.remove('hidden');
 }
 
 export function stopLoader() {
-  loader.classList.add('hidden');
+  for (const loader of loaders) {
+    loader.classList.add('hidden');
+  }
 }
 
 global.startFilterLoader = (id) => {
@@ -21,7 +23,7 @@ global.startFilterLoader = (id) => {
 
   setTimeout(() => {
     changeFilterType(ID);
-  }, 20);
+  }, 1);
 };
 
 export function stopFilterLoader(ID) {

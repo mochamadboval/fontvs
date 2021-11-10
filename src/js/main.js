@@ -6,6 +6,8 @@ const newEditor = document.getElementById('newEditor');
 
 function loadEditor() {
   addEditor();
+  count += 1;
+  addEditor();
   stopLoader();
 }
 
@@ -30,5 +32,5 @@ newEditor.addEventListener('click', () => {
   setTimeout(() => {
     addEditor();
     stopLoader();
-  }, 20);
+  }, 1);
 });
