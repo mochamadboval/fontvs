@@ -1,14 +1,12 @@
-import { loaders } from './variable';
+import { loader } from './variable';
 import { changeFilterType } from './options';
 
 export function startLoader() {
-  loaders[0].classList.remove('hidden');
+  loader.classList.remove('hidden');
 }
 
 export function stopLoader() {
-  for (const loader of loaders) {
-    loader.classList.add('hidden');
-  }
+  loader.classList.add('hidden');
 }
 
 global.startFilterLoader = (id) => {

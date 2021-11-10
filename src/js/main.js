@@ -6,11 +6,7 @@ const newEditor = document.getElementById('newEditor');
 
 function loadEditor() {
   addEditor();
-  count += 1;
-  addEditor();
-  setTimeout(() => {
-    stopLoader();
-  }, 20);
+  stopLoader();
 }
 
 async function fetchAPI() {
