@@ -1,5 +1,5 @@
 import { container } from './variable';
-import { createFontOption, createSizeOption } from './options';
+import { createSizeOption } from './options';
 
 function createTextArea() {
   const textArea = document.createElement('section');
@@ -44,7 +44,7 @@ function createFilterButton() {
   return button;
 }
 
-function createType(name, checked) {
+function createType(name) {
   const typeWrapper = document.createElement('div');
   typeWrapper.classList.add('mx-2', 'my-1');
 
@@ -52,7 +52,6 @@ function createType(name, checked) {
   checkbox.type = 'checkbox';
   checkbox.classList.add(`type-${count}`, 'mr-1');
   checkbox.id = `${name}${count}`;
-  checkbox.checked = checked;
 
   const label = document.createElement('label');
   label.htmlFor = `${name}${count}`;
@@ -66,15 +65,15 @@ function createFilterType() {
   const filterType = document.createElement('div');
   filterType.classList.add('flex', 'flex-wrap', 'justify-center');
 
-  const display = createType('Display', false);
+  const display = createType('Display');
 
-  const handwriting = createType('Handwriting', false);
+  const handwriting = createType('Handwriting');
 
-  const monospace = createType('Monospace', false);
+  const monospace = createType('Monospace');
 
-  const sansSerif = createType('Sans-serif', true);
+  const sansSerif = createType('Sans-serif');
 
-  const serif = createType('Serif', true);
+  const serif = createType('Serif');
 
   filterType.append(display, handwriting, monospace, sansSerif, serif);
   return filterType;
@@ -165,6 +164,5 @@ export function addEditor() {
   wrapper.append(card);
   container.append(wrapper);
 
-  createFontOption();
   createSizeOption();
 }

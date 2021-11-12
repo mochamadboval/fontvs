@@ -16,7 +16,20 @@ global.optionsToggle = (event) => {
   }
 };
 
-function createFontList(selectFont, serif, sansSerif, monospace, handwriting, display) {
+export function createSizeOption() {
+  const selectSize = document.getElementById(`Size${count}`);
+
+  for (let i = 8; i <= 96; i += 2) {
+    if (i === 16) {
+      selectSize.innerHTML += `<option selected>${i}</option>`;
+    } else {
+      selectSize.innerHTML += `<option>${i}</option>`;
+    }
+  }
+}
+
+function createFontList(ID, serif, sansSerif, monospace, handwriting, display) {
+  const selectFont = document.getElementById(`Font${ID}`);
   selectFont.innerHTML = '';
 
   for (const font of fonts) {
@@ -32,27 +45,8 @@ function createFontList(selectFont, serif, sansSerif, monospace, handwriting, di
   }
 }
 
-export function createFontOption() {
-  const selectFont = document.getElementById(`Font${count}`);
-
-  createFontList(selectFont, 'serif', 'sans-serif');
-}
-
-export function createSizeOption() {
-  const selectSize = document.getElementById(`Size${count}`);
-
-  for (let i = 8; i <= 96; i += 2) {
-    if (i === 16) {
-      selectSize.innerHTML += `<option selected>${i}</option>`;
-    } else {
-      selectSize.innerHTML += `<option>${i}</option>`;
-    }
-  }
-}
-
 export function changeFilterType(ID) {
   const filterType = document.querySelectorAll(`.type-${ID}`);
-  const selectFont = document.getElementById(`Font${ID}`);
 
   let display; let handwriting; let monospace; let sansSerif; let
     serif;
@@ -63,7 +57,7 @@ export function changeFilterType(ID) {
   if (filterType[3].checked ? (sansSerif = 'sans-serif') : (sansSerif = undefined));
   if (filterType[4].checked ? (serif = 'serif') : (serif = undefined));
 
-  createFontList(selectFont, serif, sansSerif, monospace, handwriting, display);
+  createFontList(ID, serif, sansSerif, monospace, handwriting, display);
 
   setTimeout(() => {
     stopFilterLoader(ID);
