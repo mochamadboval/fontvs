@@ -1,6 +1,6 @@
 import { fonts } from './variable';
 import { addEditor } from './editor';
-import { stopLoader, startLoader } from './loader';
+import { stopLoader } from './loader';
 
 const newEditor = document.getElementById('newEditor');
 
@@ -27,10 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 newEditor.addEventListener('click', () => {
-  startLoader();
   count += 1;
-  setTimeout(() => {
-    addEditor();
-    stopLoader();
-  }, 1);
+  addEditor();
 });
