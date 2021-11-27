@@ -21,7 +21,7 @@ export function createSizeOption() {
 
   for (let i = 8; i <= 96; i += 2) {
     if (i === 16) {
-      selectSize.innerHTML += `<option selected>${i}</option>`;
+      selectSize.innerHTML += `<option selected>${i} px</option>`;
     } else {
       selectSize.innerHTML += `<option>${i}</option>`;
     }
@@ -161,7 +161,8 @@ global.changeVariant = (id) => {
 
 global.changeSize = (id, value) => {
   const ID = id.replace(/\D/g, '');
+  const size = value.replace(/\D/g, '');
 
   const text = document.getElementById(`Text${ID}`);
-  text.style.fontSize = `${value}px`;
+  text.style.fontSize = `${size}px`;
 };
